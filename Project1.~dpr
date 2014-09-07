@@ -1,0 +1,15 @@
+program Project1;
+
+uses
+  Forms,
+  Unit1 in 'Unit1.pas' {Form1},
+  qianghao in 'qianghao.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.Title := '财务抢票工具V2.0';
+  Application.CreateForm(TForm1, Form1);
+  Application.Run;
+end.

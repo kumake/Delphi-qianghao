@@ -1,0 +1,53 @@
+unit jiance;
+
+interface
+
+uses
+  Classes,SysUtils,dateutils;
+
+type
+  tjiance = class(TThread)
+  private
+    { Private declarations }
+  protected
+    procedure Execute; override;
+  end;
+
+implementation
+uses unit1;
+{ Important: Methods and properties of objects in visual components can only be
+  used in a method called using Synchronize, for example,
+
+      Synchronize(UpdateCaption);
+
+  and UpdateCaption could look like,
+
+    procedure jiance.UpdateCaption;
+    begin
+      Form1.Caption := 'Updated in a thread';
+    end; }
+
+{ jiance }
+
+procedure tjiance.Execute;
+var
+timecnt:integer;
+mubiaotime: tDateTime;
+i:integer;
+begin
+timecnt:=1;
+mubiaotime:=StrToDateTime('2013-11-15 13:30:00');
+  while  not Terminated do
+  begin
+
+         if SecondsBetween(IncMilliSecond(now,timecha),mubiaotime)=0 then
+         begin
+              for i:=0 to high(MYQH) do
+              MYQH[i].Resume;
+              self.Suspend;
+         end;
+         sleep(timecnt);
+  end;
+end;
+
+end.
